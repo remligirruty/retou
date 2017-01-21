@@ -37,8 +37,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #mias apps
+    # mias apps
     'apps.usuarios',
+    'apps.padres',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -83,6 +84,8 @@ DATABASES = {
     }
 }
 
+# modelo de usuario
+AUTH_USER_MODEL = 'usuarios.Usuario'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
