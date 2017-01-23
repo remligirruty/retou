@@ -1,10 +1,8 @@
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.auth import views as myloginview
 
 urlpatterns = [
-    # Examples:
-    # url(r'^$', 'retou.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
+    url(r'^$', myloginview.login, {'template_name':'login.html'}, name='login'),
     url(r'^admin/', include(admin.site.urls)),
 ]

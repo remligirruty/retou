@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>login padres</title>
+</head>
+<body>
+	<h1>login de padres</h1>
+	</head>
+  <body class="hold-transition login-page">
+    <div class="login-box">
+      <div class="login-logo">
+        <a href="{% url 'home' %}"><b>DentyK.</b>OralCenter</a>
+      </div><!-- /.login-logo -->
+      <div class="login-box-body">
+      	{% if user.is_authenticated %}
+	    disculpe usted ya esta registrado Sr.
+	    {{ user.username | capfirst }}
+	    <br/>si no es usted click aqui <a href="{% url 'logout' %}">Salir</a>
+	    <br/>para ingresar al sistema click aqui <a href="{% url 'dentista:home' %}">ingresar</a>
+	    {% else %}
+        <p class="login-box-msg">Inicie Sección para comenzar</p>
+        <form method="POST">{% csrf_token %}
+          <div class="form-group has-feedback">
+            <input name="username" type="text" class="form-control" placeholder="Nº de DNI" maxlength="8">
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input name="password" type="password" class="form-control" placeholder="Contraseña">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="checkbox icheck">
+                <label>
+                  <input type="checkbox"> Recordarme
+                </label>
+              </div>
+            </div><!-- /.col -->
+            <div class="col-xs-4">
+              <button type="submit" class="btn btn-primary btn-block btn-flat">Ingresar</button>
+            </div><!-- /.col -->
+          </div>
+        </form>
+        {% endif %}
+      </div><!-- /.login-box-body -->
+    </div><!-- /.login-box -->
+</html>
